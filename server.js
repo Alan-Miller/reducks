@@ -1,7 +1,8 @@
 const express = require('express')
     , bodyParser = require('body-parser')
     , massive = require('massive')
-    , config = require('./config');
+    , config = require('./config')
+    , port = 3010;
 
 const app = express();
 
@@ -21,7 +22,7 @@ app.get('/api/users/:auth_id', (req, res) => {
   })
 })
 
-app.listen(config.port, function() {
-  console.log(`Listening on ${config.port}.`)
+app.listen(port, function() {
+  console.log(`Listening on ${port}.`)
 })
 

@@ -25,7 +25,6 @@ class DataBase extends Component {
         <h1>DataBase</h1>
         <h4>component calls database sets values on Redux</h4>
         <div>Name: {this.state.user.name}</div>
-        <div>Animal: {this.state.user.favorite_animal}</div>
         <div>ID: {this.state.user.id}</div>
       </div>
     )
