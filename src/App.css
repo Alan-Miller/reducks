@@ -1,0 +1,67 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.nav {
+  background-color: RGBA(86, 213, 250, 1.00);
+  width: 100px;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.nav:before {
+  content: 'Routes';
+  position: absolute;
+  top: -20px;
+  color: RGBA(0, 223, 255, 1.00);
+}
+
+a, a:visited, a:active {
+  text-decoration: none;
+  margin: 5px;
+  color: black;
+}
+a:hover {
+  color: white;
+  cursor: pointer;
+}
+
+.changeButton {
+  background-color: RGBA(0, 223, 255, 1.00);
+  display: inline-block;
+  padding: 15px;
+  margin: 10px;
+  border-radius: 4px;
+}
+.changeButton:hover {
+  cursor: pointer;
+  color: white;
+}
