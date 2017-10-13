@@ -20,11 +20,13 @@ class App extends Component {
           </div>
         </header>
 
-        <Switch>
-          <Route exact path="/" component={Word} />
-          <Route path="/pokemon" component={Pokemon} />
-          <Route path="/database" component={DataBase} />
-        </Switch>
+        <div className="contentWrapper">
+          <Switch>
+            <Route exact path="/" component={Word} />
+            <Route path="/pokemon" component={Pokemon} />
+            <Route path="/database" component={DataBase} />
+          </Switch>
+        </div>
       </div>
     );
   }

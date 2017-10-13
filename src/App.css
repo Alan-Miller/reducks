@@ -65,3 +65,13 @@ a:hover {
   cursor: pointer;
   color: white;
 }
+.content {
+  /* background-color: indianred; */
+  padding: 20px;
+}
+
+.contentWrapper {
+  display: flex;
+  justify-content: center;
+  /* background: cornflowerblue; */
+}

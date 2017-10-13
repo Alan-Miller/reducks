@@ -20,9 +20,12 @@ class Pokemon extends Component {
   render() {
     
     return (
-      <div>
-        <h1>Pokemon</h1>
-        <h4>component subscribes to pokemon on Redux, changes to response from API</h4>
+      <div className="content">
+        <h1>Pokemon Component can:</h1>
+        <h3>subscribe to pokemon on Redux state</h3>
+        <h3>use componentDidMount to get more pokemon from API</h3>
+        <h3>use getPokemon action creator to save API response to Redux</h3>
+        <h2>list of pokemon:</h2>
         {this.props.pokemon.map((item, i) => {
           return <div key={i}>{item.name}</div>
         })}
