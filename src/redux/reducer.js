@@ -6,7 +6,7 @@ const initialState = {
   favorite_animal: '',
   favorite_restaurant: '',
   isHappy: false,
-  // from outside api
+  // from outside API
   pokemon: [{name: 'Pikachu'}, {name: 'Squirtle'}],
   // inside Redux
   wordOfTheDay: ''
