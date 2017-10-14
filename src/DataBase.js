@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { connect } from 'react-redux';
+import { setDBdata } from './redux/reducer';
 
 class DataBase extends Component {
 
@@ -7,28 +9,38 @@ class DataBase extends Component {
     super()
 
     this.state = { 
-      auth_id: 'asdf1234',
-      user: {}
+      auth_id: '321'
     }
   }
 
   componentDidMount() {
     axios.get(`http://localhost:3010/api/users/${this.state.auth_id}`)
-    .then(response => {
-      this.setState({user: response.data})
+    .then(responseObject => {
+      console.log('db responseObject', responseObject.data)
+      this.props.setDBdata(responseObject.data)
     })
   }
 
   render() {
+    console.log(this.props.name);
+
     return (
       <div>
         <h1>DataBase</h1>
         <h4>component calls database sets values on Redux</h4>
-        <div>Name: {this.state.user.name}</div>
-        <div>ID: {this.state.user.id}</div>
+        <div>{this.props.user.name}</div>
+        <div>{this.props.user.id}</div>
       </div>
     )
   }
 }
 
-export default DataBase;
+function mapStateToProps(state) {
+  return {
+    user: state.user
+  };
+}
+
+// export default DataBase;
+export default connect(mapStateToProps, {setDBdata: setDBdata})(DataBase);
+

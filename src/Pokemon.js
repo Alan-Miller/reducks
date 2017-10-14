@@ -7,13 +7,13 @@ class Pokemon extends Component {
 
   componentDidMount() {
     const {getPokemon} = this.props;
-    setTimeout(_ => {
+    // setTimeout(_ => {
       axios.get('http://pokeapi.co/api/v2/pokemon/?limit=1000')
       .then(response => {
         console.log('pokeResponse', response);
         getPokemon(response.data.results);
       })
-    }, 3000)
+    // }, 3000)
   }
 
 
@@ -39,4 +39,4 @@ function mapStateToProps(state) {
   return {pokemon: state.pokemon};
 }
 
-export default connect(mapStateToProps, {getPokemon})(Pokemon);
+export default connect(mapStateToProps, {getPokemon: getPokemon})(Pokemon);
