@@ -8,21 +8,27 @@ const app = express();
 
 app.use(bodyParser.json());
 
+app.use((req, res, next) => {
+ console.log(`endpoint hit: ${req.method} ${req.url}`);
+ next();
+});
+
 massive('postgres://wvjgmeisdmvswu:ad405c70e783c7e6f717be5572fc82dd1f2a36c40f79148b93cf1cc46acd400e@ec2-54-235-90-125.compute-1.amazonaws.com:5432/del1fqajvknvrd?ssl=true')
 .then(db => {
-  console.log('db', db)
+  // console.log('db', db);
   app.set('db', db);
 })
 .catch(err => {console.log(err)});
 
 app.get('/api/users/:auth_id', (req, res) => {
-  app.get('db').get_user_id([req.params.auth_id])
+  req.app.get('db').get_user_id([req.params.auth_id])
   .then(response => {
+    console.log('res', response)
     res.status(200).send(response[0]);
   })
-})
+});
 
 app.listen(port, function() {
   console.log(`Listening on ${port}.`)
-})
+});
 

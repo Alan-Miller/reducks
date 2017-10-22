@@ -9,7 +9,7 @@ class DataBase extends Component {
     super()
 
     this.state = { 
-      auth_id: '321'
+      auth_id: 'secret_authID_321'
     }
   }
 
@@ -22,7 +22,7 @@ class DataBase extends Component {
   }
 
   render() {
-    console.log(this.props.name);
+    console.log('this.props.user', this.props.user);
 
     return (
       <div>
