@@ -1,8 +1,7 @@
 const express = require('express')
     , bodyParser = require('body-parser')
     , massive = require('massive')
-    , config = require('./config')
-    , port = 3010;
+    , { port, connection } = require('./config');
 
 const app = express();
 
@@ -13,7 +12,7 @@ app.use((req, res, next) => {
  next();
 });
 
-massive('postgres://wvjgmeisdmvswu:ad405c70e783c7e6f717be5572fc82dd1f2a36c40f79148b93cf1cc46acd400e@ec2-54-235-90-125.compute-1.amazonaws.com:5432/del1fqajvknvrd?ssl=true')
+massive(connection)
 .then(db => {
   // console.log('db', db);
   app.set('db', db);
@@ -23,7 +22,6 @@ massive('postgres://wvjgmeisdmvswu:ad405c70e783c7e6f717be5572fc82dd1f2a36c40f791
 app.get('/api/users/:auth_id', (req, res) => {
   req.app.get('db').get_user_id([req.params.auth_id])
   .then(response => {
-    console.log('res', response)
     res.status(200).send(response[0]);
   })
 });
