@@ -17,7 +17,7 @@ class Database extends Component {
     axios.get(`http://localhost:3010/api/users/${this.state.auth_id}`)
     .then(responseObject => {
       this.props.setDBdata(responseObject.data)
-    })
+    });
   }
 
   render() {
