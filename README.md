@@ -1,7 +1,5 @@
-App that makes calls to database and outside API and stores values on Redux.
-
 ## reducks
-App lets user route to different components, making API and database requests and changing values on Redux.
+App lets user route to different components. App also makes calls to database and outside API and stores values on Redux.
 
 Details
 * The intial value of the pokemon property on Redux is an array of two pokemon: Pikachu and Squirtle.
